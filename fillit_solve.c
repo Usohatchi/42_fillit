@@ -6,17 +6,44 @@
 /*   By: eito-fis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 14:15:29 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/09 18:41:48 by eito-fis         ###   ########.fr       */
+/*   Updated: 2018/10/09 19:23:25 by eito-fis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdlib.h>
 
-long	*fillit_solve(t_piece *pieces)
+static int	ft_placepiece(int x, int y, t_piece *p, t_board *b)
 {
-	long	board[26];
-	int		bmin;
+	while (y <= b->bmin - p->height)
+	{
+		while (x <= b->min - p->height)
+		{
+			if (!ft_piececol(p, b, y))
+			{
+				ft_setboard(p, b, y);
+				if (!p->next || ft_placepiece(x + 1, y, p->next, b))
+				{
+					p->xfinal = x;
+					p->yfinal = y;
+					return (1);
+				}
+				ft_undoboard(p, b, y);
+			}
+			x++;
+		}
+		x = 0;
+		y++;
+	}
+}
+
+long		*fillit_solve(t_piece *pieces)
+{
+	t_board *b;
 	
-	ft_boardclean(&board, 26);
-	bmin = ft_sqrt(ft_pieceslen(pieces) * 4);
+	b = malloc(sizeof(t_board));
+	ft_boardclean(&(b->board), 26);
+	b->bmin = ft_sqrt(ft_pieceslen(pieces) * 4);
+	while (!ft_placepiece(0, 0, pieces, b)
+		  (b->bmin)++;
 }

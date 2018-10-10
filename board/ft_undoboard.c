@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boardclean.c                                    :+:      :+:    :+:   */
+/*   ft_undoboard.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eito-fis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/09 14:30:39 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/09 19:23:06 by eito-fis         ###   ########.fr       */
+/*   Created: 2018/10/09 19:04:05 by eito-fis          #+#    #+#             */
+/*   Updated: 2018/10/09 19:22:56 by eito-fis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fillit.h"
+#include "fillit.h"
 
-void	ft_boardclean(long **arry, int l)
+void	ft_undoboard(t_piece *p, t_board *b, int y)
 {
-	long	*board;
-	int		i;
+	int	i;
 
-	if (!arry || !*arry)
-		return ();
-	board = *arry;
 	i = 0;
-	while (i < l)
+	while (i < p->height)
 	{
-		board[i] = 0;
+		b->board[y + i] ^= p->points[i];
 		i++;
 	}
 }
