@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_setboard.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eito-fis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 19:04:05 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/09 19:23:13 by eito-fis         ###   ########.fr       */
+/*   Updated: 2018/10/09 20:23:49 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_setboard(t_piece *p, t_board *b, int y)
+void	ft_setboard(t_piece *p, t_board *b, int y, int x)
 {
 	int	i;
 
 	i = 0;
 	while (i < p->height)
 	{
-		b->board[y + i] |= p->points[i];
+		b->board[y + i] |= p->points[i] << (b->bmin - p->width - x);
 		i++;
 	}
 }
