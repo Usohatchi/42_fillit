@@ -6,11 +6,11 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 14:30:39 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/09 19:44:10 by otahirov         ###   ########.fr       */
+/*   Updated: 2018/10/10 12:42:41 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fillit.h"
+#include "fillit.h"
 
 void	ft_boardclean(long *arry, int l)
 {

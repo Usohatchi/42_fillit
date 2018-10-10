@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pieceslen.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eito-fis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 14:26:43 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/09 18:58:13 by eito-fis         ###   ########.fr       */
+/*   Updated: 2018/10/10 12:42:46 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fillit.h"
+#include "fillit.h"
 
 int		ft_pieceslen(t_piece *pieces)
 {
