@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 19:30:00 by otahirov          #+#    #+#             */
-/*   Updated: 2018/10/09 20:28:36 by otahirov         ###   ########.fr       */
+/*   Updated: 2018/10/10 15:10:54 by eito-fis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int main()
 	printf("%li\n", board->board[1]);
 	printf("%li\n", board->board[2]);
 	printf("%li\n", board->board[3]);
-	printf("%i", board->bmin);
+	printf("%i\n", board->bmin);
+	fillit_print(piece, board);
 	return (0);
 }
