@@ -6,16 +6,17 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/20 15:41:11 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/10 13:27:06 by otahirov         ###   ########.fr       */
+/*   Updated: 2018/10/10 13:59:33 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef FILLIT_H
+# define FILLIT_H
 
 # include "libft.h"
 # define CHK_COL(b, p) (b != ((b | p) ^ p))
-# define CHECK_NULL(x) if (x == NULL) return NULL
+# define CHECK_NULL(x) if (x == NULL) return (NULL)
+# define CHECK_FD(x) if (x <= 2) return (NULL)
 
 typedef struct	s_piece
 {
