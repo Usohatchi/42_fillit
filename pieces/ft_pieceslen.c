@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_pieceslen.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eito-fis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/20 15:41:11 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/09 18:41:51 by eito-fis         ###   ########.fr       */
+/*   Created: 2018/10/09 14:26:43 by eito-fis          #+#    #+#             */
+/*   Updated: 2018/10/09 18:41:49 by eito-fis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../fillit.h"
 
-#include "libft.h"
-
-typedef struct	s_list
+int		ft_pieceslen(t_piece *pieces)
 {
-	long			points[4];
-	int				width;
-	int				height;
-	struct s_list	*next;
-}				t_piece;
+	int ret;
 
-int		ft_pieceslen(t_piece *pieces);
-void	ft_boardclean(long **arry, int l);
-long	*fillit_solve(t_piece *pieces);
-
-#endif
+	ret = 0;
+	while (pieces)
+	{
+		pieces = pieces->next;
+		ret++;
+	}
+	return (ret);
+}

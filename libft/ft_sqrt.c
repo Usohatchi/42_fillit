@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eito-fis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/20 15:41:11 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/09 18:41:51 by eito-fis         ###   ########.fr       */
+/*   Created: 2018/10/09 14:50:28 by eito-fis          #+#    #+#             */
+/*   Updated: 2018/10/09 15:05:55 by eito-fis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-
 #include "libft.h"
 
-typedef struct	s_list
+int		ft_sqrt(int i)
 {
-	long			points[4];
-	int				width;
-	int				height;
-	struct s_list	*next;
-}				t_piece;
+	int	start;
+	int	end;
+	int	ret;
+	int mid;
 
-int		ft_pieceslen(t_piece *pieces);
-void	ft_boardclean(long **arry, int l);
-long	*fillit_solve(t_piece *pieces);
-
-#endif
+	if (i == 0 || i == 1)
+		return (i);
+	start = 0;
+	end = i / 2;
+	ret = 0;
+	while (start < end)
+	{
+		mid = (start + end) / 2;
+		if (i == mid * mid)
+			return (mid);
+		if (i > mid * mid)
+		{
+			start = mid + 1;
+			ret = mid;
+		}
+		else
+			end = mid;
+	}
+	return (ret + 1);
+}

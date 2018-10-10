@@ -6,7 +6,7 @@
 /*   By: eito-fis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:07:58 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/09/26 20:38:31 by eito-fis         ###   ########.fr       */
+/*   Updated: 2018/10/09 14:54:07 by eito-fis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void			*ft_realloc(void *ptr, size_t cur, size_t l);
 char			*ft_strappend(char *str, char *add, size_t cur, size_t f);
+int				ft_sqrt(int i);
 
 #endif
