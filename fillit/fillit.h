@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/20 15:41:11 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/09 20:23:14 by otahirov         ###   ########.fr       */
+/*   Updated: 2018/10/10 13:27:06 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # define CHK_COL(b, p) (b != ((b | p) ^ p))
+# define CHECK_NULL(x) if (x == NULL) return NULL
 
 typedef struct	s_piece
 {

@@ -6,9 +6,14 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 12:58:37 by otahirov          #+#    #+#             */
-/*   Updated: 2018/10/10 12:58:57 by otahirov         ###   ########.fr       */
+/*   Updated: 2018/10/10 13:27:16 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <fcntl.h>
 
+t_piece		*ft_mapcheck(char *fn)
+{
+	
+}
