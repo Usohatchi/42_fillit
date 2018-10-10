@@ -6,7 +6,7 @@
 #    By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/10 12:11:18 by otahirov          #+#    #+#              #
-#    Updated: 2018/10/10 12:43:41 by otahirov         ###   ########.fr        #
+#    Updated: 2018/10/10 13:00:00 by otahirov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ CLANG = gcc
 all : $(NAME)
 
 $(NAME) : $(LIB) 
-	@$(CLANG) $(CFLAGS) -o $@ $(SRC) -I $(INC) -I $(INC_LIB) -L $(LIB_P) -lft
+	@$(CLANG) $(CFLAGS) -o ../$@ $(SRC) -I $(INC) -I $(INC_LIB) -L $(LIB_P) -lft
 	@echo "Compiled!"
 
 $(LIB) : 
