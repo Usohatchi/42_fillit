@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_undoboard.c                                     :+:      :+:    :+:   */
+/*   ft_piececol.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eito-fis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/09 19:04:05 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/09 19:22:56 by eito-fis         ###   ########.fr       */
+/*   Created: 2018/10/09 19:00:09 by eito-fis          #+#    #+#             */
+/*   Updated: 2018/10/09 20:24:03 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
-void	ft_undoboard(t_piece *p, t_board *b, int y)
+int		ft_piececol(t_piece *p, t_board *b, int y, int x)
 {
 	int	i;
 
 	i = 0;
 	while (i < p->height)
 	{
-		b->board[y + i] ^= p->points[i];
+		if (CHK_COL(b->board[y + i], p->points[i] << (b->bmin - p->width - x)))
+			return (1);
 		i++;
 	}
+	return (0);
 }

@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boardclean.c                                    :+:      :+:    :+:   */
+/*   ft_setboard.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eito-fis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/09 14:30:39 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/09 19:23:06 by eito-fis         ###   ########.fr       */
+/*   Created: 2018/10/09 19:04:05 by eito-fis          #+#    #+#             */
+/*   Updated: 2018/10/09 20:23:49 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fillit.h"
+#include "fillit.h"
 
-void	ft_boardclean(long **arry, int l)
+void	ft_setboard(t_piece *p, t_board *b, int y, int x)
 {
-	long	*board;
-	int		i;
+	int	i;
 
-	if (!arry || !*arry)
-		return ();
-	board = *arry;
 	i = 0;
-	while (i < l)
+	while (i < p->height)
 	{
-		board[i] = 0;
+		b->board[y + i] |= p->points[i] << (b->bmin - p->width - x);
 		i++;
 	}
 }
