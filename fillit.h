@@ -6,7 +6,7 @@
 /*   By: eito-fis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/20 15:41:11 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/09 18:41:51 by eito-fis         ###   ########.fr       */
+/*   Updated: 2018/10/09 18:55:23 by eito-fis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ typedef struct	s_list
 	int				height;
 	struct s_list	*next;
 }				t_piece;
+
+typedef	struct	s_board
+{
+	long	board[26];
+	int		bmin;
+}
 
 int		ft_pieceslen(t_piece *pieces);
 void	ft_boardclean(long **arry, int l);
