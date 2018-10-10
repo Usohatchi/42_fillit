@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eito-fis <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/11 12:08:26 by eito-fis          #+#    #+#              #
-#    Updated: 2018/10/09 14:53:55 by eito-fis         ###   ########.fr        #
+#    Updated: 2018/10/09 19:44:59 by otahirov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ SRCO = ft_atoi.o ft_bzero.o ft_getdigits.o ft_isalnum.o ft_isalpha.o \
 	  ft_strmap.o ft_strmapi.o ft_strncat.o ft_strncmp.o ft_strncpy.o \
 	  ft_strnequ.o ft_strnew.o ft_strnstr.o ft_strrchr.o ft_strsplit.o \
 	  ft_strstr.o ft_strsub.o ft_strtrim.o ft_tolower.o ft_toupper.o \
-	  ft_realloc.o ft_strappend.o ft_sqrt.c
+	  ft_realloc.o ft_strappend.o ft_sqrt.o
 
 INC = includes
 
