@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit_solve.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eito-fis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 14:15:29 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/09 19:23:25 by eito-fis         ###   ########.fr       */
+/*   Updated: 2018/10/09 19:25:44 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_placepiece(int x, int y, t_piece *p, t_board *b)
 {
 	while (y <= b->bmin - p->height)
 	{
-		while (x <= b->min - p->height)
+		while (x <= b->bmin - p->height)
 		{
 			if (!ft_piececol(p, b, y))
 			{
@@ -44,6 +44,6 @@ long		*fillit_solve(t_piece *pieces)
 	b = malloc(sizeof(t_board));
 	ft_boardclean(&(b->board), 26);
 	b->bmin = ft_sqrt(ft_pieceslen(pieces) * 4);
-	while (!ft_placepiece(0, 0, pieces, b)
+	while (!ft_placepiece(0, 0, pieces, b))
 		  (b->bmin)++;
 }
