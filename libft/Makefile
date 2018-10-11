@@ -6,14 +6,13 @@
 #    By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/11 12:08:26 by eito-fis          #+#    #+#              #
-#    Updated: 2018/10/10 12:36:53 by otahirov         ###   ########.fr        #
+#    Updated: 2018/10/10 18:24:07 by otahirov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 SRC = ft_atoi.c ft_bzero.c ft_getdigits.c ft_isalnum.c ft_isalpha.c \
-	  ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_lstadd.c \
-	  ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_lstnew.c \
+	  ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c \
 	  ft_memalloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
 	  ft_memdel.c ft_memmove.c ft_memset.c ft_power.c ft_putchar.c \
 	  ft_putchar_fd.c ft_putendl.c ft_putendl_fd.c ft_putnbr.c ft_putnbr_fd.c \
@@ -26,8 +25,7 @@ SRC = ft_atoi.c ft_bzero.c ft_getdigits.c ft_isalnum.c ft_isalpha.c \
 	  ft_realloc.c ft_strappend.c ft_sqrt.c get_next_line.c
 
 SRCO = ft_atoi.o ft_bzero.o ft_getdigits.o ft_isalnum.o ft_isalpha.o \
-	  ft_isascii.o ft_isdigit.o ft_isprint.o ft_itoa.o ft_lstadd.o \
-	  ft_lstdel.o ft_lstdelone.o ft_lstiter.o ft_lstmap.o ft_lstnew.o \
+	  ft_isascii.o ft_isdigit.o ft_isprint.o ft_itoa.o \
 	  ft_memalloc.o ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o \
 	  ft_memdel.o ft_memmove.o ft_memset.o ft_power.o ft_putchar.o \
 	  ft_putchar_fd.o ft_putendl.o ft_putendl_fd.o ft_putnbr.o ft_putnbr_fd.o \

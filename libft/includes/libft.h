@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eito-fis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:07:58 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/09 14:54:07 by eito-fis         ###   ########.fr       */
+/*   Updated: 2018/10/10 18:22:50 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,6 @@
 # include <unistd.h>
 # include <string.h>
 # include <limits.h>
-# define BUFF_SIZE 1024
-
-typedef struct	s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}				t_list;
 
 void			ft_putchar(char c);
 void			ft_putstr(const char *str);
@@ -84,12 +76,6 @@ void			ft_putendl_fd(const char *str, int fd);
 void			ft_putnbr_fd(int n, int fd);
 size_t			ft_getdigits(int n);
 int				ft_power(int base, int pwr);
-t_list			*ft_lstnew(void const *content, size_t content_size);
-void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
-void			ft_lstdel(t_list **alst, void (*del)(void*, size_t));
-void			ft_lstadd(t_list **alst, t_list *new);
-void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void			*ft_realloc(void *ptr, size_t cur, size_t l);
 char			*ft_strappend(char *str, char *add, size_t cur, size_t f);
 int				ft_sqrt(int i);
