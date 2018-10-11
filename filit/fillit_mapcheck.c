@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 12:58:37 by otahirov          #+#    #+#             */
-/*   Updated: 2018/10/10 20:05:12 by otahirov         ###   ########.fr       */
+/*   Updated: 2018/10/10 21:16:29 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,22 @@
 static int		getpoints(t_piece **head, char *line, int i)
 {
 	t_piece		*piece;
-	int			w;
 	int			h;
 	char		*l;
 
 	l = line;
-	w = 0;
 	h = FALSE;
 	piece = *head;
 	MV_LAST(piece);
 	while (*l)
 	{
-		if (*l == '#')
+		if (*l++ == '#')
 		{
-			w++;
 			piece->points[i] = piece->points[i] << 1;
 			piece->points[i] += 1;
 			h = TRUE;
-			SET_WIDTH(l, line, piece->width);
 		}
-		l++;
+		SET_WIDTH(piece->points[i], piece->width);
 	}
 	SET_HEIGHT(h, piece->height);
 	SET_INDEX(piece->points[i], i);
@@ -75,8 +71,11 @@ static void		checkline(char *line, int *lines)
 static void		ft_eamon(char *line, int *lines, t_piece **pieces, int fd)
 {
 	int		i;
+	t_piece	*piece;
 
-	i = 1;
+	piece = *pieces;
+	MV_LAST(piece);
+	(piece->points[0] == 0) ? (i = 0) : (i = 1);
 	while (get_next_line(fd, &line) == 1)
 	{	
 		checkline(line, lines);

@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:07:58 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/10 18:22:50 by otahirov         ###   ########.fr       */
+/*   Updated: 2018/10/10 20:39:41 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ int				ft_power(int base, int pwr);
 void			*ft_realloc(void *ptr, size_t cur, size_t l);
 char			*ft_strappend(char *str, char *add, size_t cur, size_t f);
 int				ft_sqrt(int i);
+size_t			ft_intlenb(long nb);
 
 #endif

@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_setboard.c                                      :+:      :+:    :+:   */
+/*   ft_piecewidth.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/09 19:04:05 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/09 20:23:49 by otahirov         ###   ########.fr       */
+/*   Created: 2018/10/10 21:05:02 by otahirov          #+#    #+#             */
+/*   Updated: 2018/10/10 21:06:21 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_setboard(t_piece *p, t_board *b, int y, int x)
+void	ft_piecewidth(t_piece *p, int i)
 {
-	int	i;
-
-	i = 0;
-	while (i < p->height)
+	while (--i >= 0)
 	{
-		b->board[y + i] |= p->points[i] << (b->bmin - p->width - x);
-		i++;
+		p->points[i] = p->points[i] << 1;
 	}
 }

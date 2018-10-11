@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/20 15:41:11 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/10 20:12:20 by otahirov         ###   ########.fr       */
+/*   Updated: 2018/10/10 20:43:03 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@
 # define CHECK_HASH(x) if (x > 4) error()
 # define CHECK_HOR_FLAG(x, f) if (f == TRUE && *x == '#') error()
 # define CHECK_STARTNL(x, f) if (!ft_strcmp(x, "") && f == FALSE) error()
+# define CHECK_LASTPOINT(x, y, z) if ((x - y) < 3) z = z << 1
 # define SET_HOR_FLAG(x, f) if (*x == '#' && *(x + 1) != '#') f = TRUE
 # define SET_PREV(x, y) if (x == NULL) x = y
 # define SET_FIRST_LINE(f) if (f == FALSE) f = TRUE
-# define SET_WIDTH(x, y, z) if ((x - y - 1) > z) z = (x - y - 1)
+# define SET_WIDTH(x, z) if ((int)ft_intlenb(x) > z) z = ft_intlenb(x)
 # define SET_INDEX(x, y) if (x > 0) y++
 # define SET_HEIGHT(f, x) if (f == TRUE) x++
 # define COUNT_HASH(x, y) if (*x == '#') y++
-# define CHECK_LASTPOINT(x, y, z) if ((x - y) < 3) z = z << 1
 
 typedef struct	s_piece
 {

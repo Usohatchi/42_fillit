@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_intlenb.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/09 19:30:00 by otahirov          #+#    #+#             */
-/*   Updated: 2018/10/10 20:14:55 by otahirov         ###   ########.fr       */
+/*   Created: 2018/09/11 19:05:17 by otahirov          #+#    #+#             */
+/*   Updated: 2018/10/10 20:39:29 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-void	error(void)
+size_t	ft_intlenb(long nb)
 {
-	write(1, "error\n", 6);
-	exit (EXIT_FAILURE);
-}
+	size_t	len;
 
-int		main(int ac, char **av)
-{
-	t_piece		*piece;
-	t_board		*board;
-
-	if (ac != 2)
-		error();
-	piece = ft_mapcheck(av[1]);
-	board = fillit_solve(piece);
-	fillit_print(piece, board);	
-	return (0);
+	len = 1;
+	if (nb < 0)
+	{
+		nb = -nb;
+		len++;
+	}
+	while (nb >= 2)
+	{
+		len++;
+		nb = nb / 2;
+	}
+	return (len);
 }
