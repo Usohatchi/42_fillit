@@ -6,7 +6,7 @@
 #    By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/10 12:11:18 by otahirov          #+#    #+#              #
-#    Updated: 2018/10/10 20:12:05 by otahirov         ###   ########.fr        #
+#    Updated: 2018/10/10 20:14:20 by otahirov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ LIB=libft.a
 LIB_P=../libft/
 
 SRC=main.c fillit_solve.c ft_boardclean.c ft_piececol.c ft_setboard.c ft_undoboard.c \
-	ft_pieceslen.c fillit_print.c
+	ft_pieceslen.c fillit_print.c fillit_mapcheck.c pieces.c
 INC_LIB=../libft/includes
 INC=.
 
