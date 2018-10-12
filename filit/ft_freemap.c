@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_piecewidth.c                                    :+:      :+:    :+:   */
+/*   ft_freemap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/11 12:10:33 by otahirov          #+#    #+#             */
-/*   Updated: 2018/10/11 14:48:01 by otahirov         ###   ########.fr       */
+/*   Created: 2018/10/11 13:19:35 by otahirov          #+#    #+#             */
+/*   Updated: 2018/10/12 11:28:58 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_piecewidth(t_piece *p, int i)
+void	ft_freemap(char **map)
 {
-	while (--i >= 0)
-		p->points[i] >>= 1;
+	int		i;
+
+	i = 0;
+	while (i < 5)
+		ft_strdel(&map[i++]);
 }

@@ -6,19 +6,11 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 13:07:55 by otahirov          #+#    #+#             */
-/*   Updated: 2018/10/10 18:18:52 by otahirov         ###   ########.fr       */
+/*   Updated: 2018/10/12 10:45:42 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-/**
- * @param: w = width of the shape
- * @param: h = height of the shape
- * @param: p = Array of points in binary
- * @return: Initialized piece
- * @description: Initializes a piece with the @params
- */
 
 t_piece		*ft_piecenew(int w, int h)
 {
@@ -31,6 +23,8 @@ t_piece		*ft_piecenew(int w, int h)
 	new_piece->width = w;
 	new_piece->xfinal = 0;
 	new_piece->yfinal = 0;
+	new_piece->coord[0] = 0;
+	new_piece->coord[1] = 0;
 	while (i < 4)
 		new_piece->points[i++] = 0;
 	new_piece->next = NULL;

@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 12:58:37 by otahirov          #+#    #+#             */
-/*   Updated: 2018/10/10 21:16:29 by otahirov         ###   ########.fr       */
+/*   Updated: 2018/10/12 11:54:11 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,26 @@
 #include "get_next_line.h"
 #include <fcntl.h>
 
-static int		getpoints(t_piece **head, char *line, int i)
+static void		getpoints(t_piece *piece, char **map)
 {
-	t_piece		*piece;
-	int			h;
-	char		*l;
+	int		x;
+	int		y;
+	int		i;
 
-	l = line;
-	h = FALSE;
-	piece = *head;
+	i = 0;
 	MV_LAST(piece);
-	while (*l)
+	y = piece->coord[0] - 1;
+	while (++y < (piece->coord[0] + piece->height))
 	{
-		if (*l++ == '#')
+		x = piece->coord[1] - 1;
+		while (++x < (piece->coord[1] + piece->width))
 		{
-			piece->points[i] = piece->points[i] << 1;
-			piece->points[i] += 1;
-			h = TRUE;
+			piece->points[i] <<= 1;
+			if (map[y][x] == '#')
+				piece->points[i] += 1;
 		}
-		SET_WIDTH(piece->points[i], piece->width);
+		SET_INDEX(piece->points[i], i);
 	}
-	SET_HEIGHT(h, piece->height);
-	SET_INDEX(piece->points[i], i);
-	return (i);
 }
 
 static void		checkline(char *line, int *lines)
@@ -68,47 +65,82 @@ static void		checkline(char *line, int *lines)
 	CHECK_HASH(i);
 }
 
-static void		ft_eamon(char *line, int *lines, t_piece **pieces, int fd)
+static void		ft_countwidth(char **map, t_piece *piece)
+{
+	int		x;
+	int		y;
+	int		ym[2];
+	int		xm[2];
+
+	x = -1;
+	ym[0] = INT_MAX;
+	xm[0] = INT_MAX;
+	ym[1] = 0;
+	MV_LAST(piece);
+	while (++x < 4)
+	{
+		y = -1;
+		while(++y < 4)
+		{
+			SET_XMIN(map[y][x], xm[0], x);
+			SET_MAX(map[y][x], xm[1], x);
+			SET_XMIN(map[y][x], ym[0], y);
+			SET_YMAX(map[y][x], ym[1], y);
+		}
+	}
+	piece->width = xm[1] - xm[0] + 1;
+	piece->height = ym[1] - ym[0] + 1;
+	piece->coord[0] = ym[0];
+	piece->coord[1] = xm[0];
+}
+
+static void		ft_itermap(char **map, int *lines, t_piece **pieces, int fd)
 {
 	int		i;
-	t_piece	*piece;
 
-	piece = *pieces;
-	MV_LAST(piece);
-	(piece->points[0] == 0) ? (i = 0) : (i = 1);
-	while (get_next_line(fd, &line) == 1)
-	{	
-		checkline(line, lines);
-		if (!ft_strcmp(line, ""))
+	i = 1;
+	while (get_next_line(fd, &map[i]) == 1)
+	{
+		checkline(map[i], lines);
+		if (!ft_strcmp(map[i], ""))
 		{
 			*lines = 0;
-			ft_strdel(&line);
+			ft_countwidth(map, *pieces);
+			getpoints(*pieces, map);
+			ft_freemap(map);
 			*pieces = ft_pieceadd(pieces, ft_piecenew(0, 0));
 			i = 0;
 			continue ;
 		}
 		*lines += 1;
-		i = getpoints(pieces, line, i);
-		ft_strdel(&line);
+		i++;
 	}
+	if (map[0])
+	{
+		ft_countwidth(map, *pieces);
+		getpoints(*pieces, map);
+		ft_freemap(map);
+	}
+	else
+		error();
 }
 
 t_piece			*ft_mapcheck(char *fn)
 {
 	int		fd;
-	char	*line;
+	char	**map;
 	int		lines;
 	t_piece	*pieces;
 
+	CHECK_NULL((map = malloc(5 * sizeof(char *))));
 	CHECK_FD((fd = open(fn, O_RDONLY)));
 	pieces = ft_piecenew(0, 0);
 	lines = 0;
-	CHECK_FIRSTLINE(get_next_line(fd, &line));
-	checkline(line, &lines);
+	CHECK_FIRSTLINE(get_next_line(fd, &map[0]));
+	checkline(map[0], &lines);
 	lines++;
-	getpoints(&pieces, line, 0);
-	ft_strdel(&line);
-	ft_eamon(line, &lines, &pieces, fd);
+	ft_itermap(map, &lines, &pieces, fd);
+	free(map);
 	close(fd);
 	return (pieces);
 }

@@ -6,7 +6,7 @@
 #    By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/10 12:11:18 by otahirov          #+#    #+#              #
-#    Updated: 2018/10/10 20:54:31 by otahirov         ###   ########.fr        #
+#    Updated: 2018/10/12 12:20:25 by otahirov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ SRC_P=filit/
 
 SRC=$(SRC_P)main.c $(SRC_P)fillit_solve.c $(SRC_P)ft_boardclean.c \
 	$(SRC_P)ft_piececol.c $(SRC_P)ft_setboard.c $(SRC_P)ft_undoboard.c \
-	$(SRC_P)ft_pieceslen.c $(SRC_P)fillit_print.c \
-	$(SRC_P)fillit_mapcheck.c $(SRC_P)pieces.c
+	$(SRC_P)ft_pieceslen.c $(SRC_P)fillit_print.c $(SRC_P)ft_piecewidth.c \
+	$(SRC_P)fillit_mapcheck.c $(SRC_P)pieces.c $(SRC_P)ft_freemap.c
 
 INC_LIB= -I libft/includes
 INC= -I filit/
@@ -29,13 +29,11 @@ CLANG = gcc
 
 all : $(NAME)
 
-$(NAME) : $(LIB) 
-	@$(CLANG) $(CFLAGS) -o $@ $(SRC) $(INC) $(INC_LIB) -L $(LIB_P) -lft
-	@echo "Compiled!"
-
-$(LIB) : 
-	@make -C $(LIB_P) re
+$(NAME) :
+	@make -C $(LIB_P)
 	@echo "Library was Compiled!"
+	@$(CLANG) $(CFLAGS) -o $@ $(SRC) $(INC) $(INC_LIB) -L $(LIB_P) -lft
+	@echo "Compiled!"	
 
 clean :
 	@make -C $(LIB_P) clean
