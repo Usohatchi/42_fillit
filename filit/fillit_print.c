@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit_print.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eito-fis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 12:58:13 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/10 15:12:26 by eito-fis         ###   ########.fr       */
+/*   Updated: 2018/10/12 12:39:57 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	ft_printboardmake(t_piece *p, int bmin, char *str)
 	}
 }
 
-void	fillit_print(t_piece *p, t_board *b)
+void		fillit_print(t_piece *p, t_board *b)
 {
 	int		cells;
 	int		i;
@@ -59,5 +59,3 @@ void	fillit_print(t_piece *p, t_board *b)
 	write(1, str, cells + b->bmin);
 	free(str);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/20 15:41:11 by eito-fis          #+#    #+#             */
-/*   Updated: 2018/10/12 11:53:26 by otahirov         ###   ########.fr       */
+/*   Updated: 2018/10/12 12:50:02 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # define CHECK_NL_V(x, y, z) if (!ft_strcmp(x, "") && y == 4) z = 0
 # define CHECK_NL_VL(x, z) if (!ft_strcmp(x, "")) z = 0
 # define CHECK_NL_VLD(x) if (!ft_strcmp(x, "")) ft_strdel(&x)
-# define CHECK_NL_VLC(x) if (!ft_strcmp(x, "")) continue 
-# define CHECK_NL_V_R(x, y) if (!ft_strcmp(x, "") && y == 4) return 
+# define CHECK_NL_VLC(x) if (!ft_strcmp(x, "")) continue
+# define CHECK_NL_V_R(x, y) if (!ft_strcmp(x, "") && y == 4) return
 # define CHECK_FD(x) if (x <= 2) error()
 # define CHECK_FIRSTLINE(x) if (x == 0) error()
 # define CHECK_NUM(x, y) if ((x - y) != 4) error()
@@ -48,7 +48,7 @@
 # define ORI_MACRO(x, y, z, i) if (x < y) ft_piecewidth(z, i)
 # define COUNT_HASH(x, y) if (*x == '#') y++
 
-typedef struct	s_piece
+typedef struct		s_piece
 {
 	long			points[4];
 	int				width;
@@ -57,26 +57,28 @@ typedef struct	s_piece
 	int				xfinal;
 	int				yfinal;
 	struct s_piece	*next;
-}				t_piece;
+}					t_piece;
 
-typedef	struct	s_board
+typedef	struct		s_board
 {
-	long	board[26];
-	int		bmin;
-}				t_board;
+	long			board[26];
+	int				bmin;
+}					t_board;
 
-int		ft_pieceslen(t_piece *pieces);
-int		ft_piececol(t_piece *p, t_board *b, int y, int x);
-void	ft_setboard(t_piece *p, t_board *b, int y, int x);
-void	ft_undoboard(t_piece *p, t_board *b, int y, int x);
-void	ft_boardclean(long *arry, int l);
-t_board	*fillit_solve(t_piece *pieces);
-t_piece	*ft_piecenew(int w, int h);
-t_piece	*ft_pieceadd(t_piece **head, t_piece *add);
-t_piece	*ft_mapcheck(char *fn);
-void	fillit_print(t_piece *p, t_board *b);
-void	ft_piecewidth(t_piece *p, int i);
-void	ft_freemap(char **map);
-void	error(void);
+int					ft_piececol(t_piece *p, t_board *b, int y, int x);
+void				ft_setboard(t_piece *p, t_board *b, int y, int x);
+void				ft_undoboard(t_piece *p, t_board *b, int y, int x);
+void				ft_piecevalidate(char **map, t_piece **pieces);
+t_piece				*ft_pieceadd(t_piece **head, t_piece *add);
+void				ft_countwidth(char **map, t_piece *piece);
+void				getpoints(t_piece *piece, char **map);
+void				fillit_print(t_piece *p, t_board *b);
+void				ft_boardclean(long *arry, int l);
+t_board				*fillit_solve(t_piece *pieces);
+int					ft_pieceslen(t_piece *pieces);
+t_piece				*ft_piecenew(int w, int h);
+t_piece				*ft_mapcheck(char *fn);
+void				ft_freemap(char **map);
+void				error(void);
 
 #endif

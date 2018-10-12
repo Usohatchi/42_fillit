@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 12:58:37 by otahirov          #+#    #+#             */
-/*   Updated: 2018/10/12 11:54:11 by otahirov         ###   ########.fr       */
+/*   Updated: 2018/10/12 12:49:39 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "get_next_line.h"
 #include <fcntl.h>
 
-static void		getpoints(t_piece *piece, char **map)
+void			getpoints(t_piece *piece, char **map)
 {
 	int		x;
 	int		y;
@@ -42,7 +42,7 @@ static void		checkline(char *line, int *lines)
 	static int		i;
 	int				hash;
 	static int		start;
-	
+
 	l = line;
 	CHECK_STARTNL(l, start);
 	SET_FIRST_LINE(start);
@@ -65,7 +65,7 @@ static void		checkline(char *line, int *lines)
 	CHECK_HASH(i);
 }
 
-static void		ft_countwidth(char **map, t_piece *piece)
+void			ft_countwidth(char **map, t_piece *piece)
 {
 	int		x;
 	int		y;
@@ -80,7 +80,7 @@ static void		ft_countwidth(char **map, t_piece *piece)
 	while (++x < 4)
 	{
 		y = -1;
-		while(++y < 4)
+		while (++y < 4)
 		{
 			SET_XMIN(map[y][x], xm[0], x);
 			SET_MAX(map[y][x], xm[1], x);
@@ -105,9 +105,7 @@ static void		ft_itermap(char **map, int *lines, t_piece **pieces, int fd)
 		if (!ft_strcmp(map[i], ""))
 		{
 			*lines = 0;
-			ft_countwidth(map, *pieces);
-			getpoints(*pieces, map);
-			ft_freemap(map);
+			ft_piecevalidate(map, pieces);
 			*pieces = ft_pieceadd(pieces, ft_piecenew(0, 0));
 			i = 0;
 			continue ;
@@ -116,11 +114,7 @@ static void		ft_itermap(char **map, int *lines, t_piece **pieces, int fd)
 		i++;
 	}
 	if (map[0])
-	{
-		ft_countwidth(map, *pieces);
-		getpoints(*pieces, map);
-		ft_freemap(map);
-	}
+		ft_piecevalidate(map, pieces);
 	else
 		error();
 }

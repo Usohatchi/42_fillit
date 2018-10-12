@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 19:30:00 by otahirov          #+#    #+#             */
-/*   Updated: 2018/10/10 20:14:55 by otahirov         ###   ########.fr       */
+/*   Updated: 2018/10/12 12:43:14 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 void	error(void)
 {
 	write(1, "error\n", 6);
-	exit (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 int		main(int ac, char **av)
@@ -29,6 +29,6 @@ int		main(int ac, char **av)
 		error();
 	piece = ft_mapcheck(av[1]);
 	board = fillit_solve(piece);
-	fillit_print(piece, board);	
+	fillit_print(piece, board);
 	return (0);
 }
